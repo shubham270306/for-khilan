@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Khilan 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
+body{
+background:radial-gradient(circle at top,#0a1a3a,#000814);
+color:#fff;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* Floating particles */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background-image:radial-gradient(#4fc3ff 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.2;
+animation:float 20s linear infinite;
+pointer-events:none;
+}
+@keyframes float{
+from{background-position:0 0}
+to{background-position:400px 400px}
+}
+
+section{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
+}
+
+/* HOME */
+.home{
+flex-direction:column;
+text-align:center;
+gap:20px;
+}
+.home h1{
+font-size:2.2rem;
+font-weight:500;
+opacity:.95;
+}
+.timer{
+font-size:1.1rem;
+letter-spacing:1px;
+opacity:.85;
+margin-bottom:20px;
+}
+
+/* LETTER GRID */
+.letters{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+.letter{
+width:90px;
+height:90px;
+border-radius:18px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 0 30px rgba(79,195,255,.15);
+}
+.letter:hover{
+transform:translateY(-6px);
+box-shadow:0 0 45px rgba(79,195,255,.4);
+}
+
+/* PAGES */
+.page{
+display:none;
+animation:fade .6s ease;
+}
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:none}
+}
+.content{
+max-width:900px;
+display:flex;
+gap:40px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+/* TEXT */
+.text{
+flex:1;
+min-width:260px;
+}
+.text h2{
+font-size:1.8rem;
+margin-bottom:10px;
+}
+.text p{
+line-height:1.7;
+opacity:.9;
+}
+
+/* IMAGE FIXED */
+.photo{
+width:280px;
+height:360px;
+border-radius:18px;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 0 40px rgba(79,195,255,.35);
+}
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.back{
+margin-top:20px;
+cursor:pointer;
+opacity:.7;
+}
+.back:hover{opacity:1}
+
+/* CONFETTI */
+.confetti{
+position:fixed;
+inset:0;
+pointer-events:none;
+background-image:
+radial-gradient(circle,#4fc3ff 3px,transparent 3px),
+radial-gradient(circle,#8ab4ff 2px,transparent 2px);
+background-size:60px 60px,90px 90px;
+animation:confetti 6s linear infinite;
+opacity:.35;
+display:none;
+}
+@keyframes confetti{
+from{background-position:0 0,0 0}
+to{background-position:0 600px,0 900px}
+}
+.photo img{
+transition:opacity .6s ease;
+}
+.music-btn{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+  color:white;
+  font-size:22px;
+  padding:14px 18px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:9999;
+  transition:transform .2s ease;
+}
+.music-btn:hover{
+  transform:scale(1.1);
+}
+.typing::after{
+  content:"|";
+  animation:blink 1s infinite;
+}
+@keyframes blink{
+  0%,50%{opacity:1}
+  51%,100%{opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="confetti" id="confetti"></div>
+
+<!-- Background Music -->
+<audio id="bgMusic" preload="auto" playsinline loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="music-btn">💙</button>
+
+<!-- HOME -->
+<section class="home" id="home">
+<h1>HAPPPYYYY BIRTHDAYYYYY!!!!!🎈🩵 🥳<br>Khilan, something special is waiting for you 💙🥹</h1>
+<div class="timer" id="timer"></div>
+
+<div class="letters">
+<div class="letter" onclick="openPage('k'); startMusic();">K</div>
+<div class="letter" onclick="openPage('h')">H</div>
+<div class="letter" onclick="openPage('i')">I</div>
+<div class="letter" onclick="openPage('l')">L</div>
+<div class="letter" onclick="openPage('a')">A</div>
+<div class="letter" onclick="openPage('n')">N</div>
+</div>
+</section>
+
+
+<!-- K -->
+<section class="page" id="k">
+<div class="content">
+<div class="text">
+<h2>K — Kindness 😇</h2>
+<p class="typing">
+Some people don't show kindness loudly.  
+They don't try to prove it or talk about it.  
+They simply live it, every day, in small and quiet ways.
+
+You've always been that person, Khilan.  
+Your kindness feels natural, effortless, and genuine.  
+You make people feel comfortable without even realizing it.
+
+And that kind of kindness —  
+the one that comes from the heart —  
+is something truly rare.
+</p>
+<div class="back" onclick="goHome()">← back</div>
+</div>
+<div class="photo">
+<img src="images/pic5.jpg">
+</div>
+</div>
+</section>
+
+<!-- H -->
+<section class="page" id="h">
+<div class="content">
+<div class="text">
+<h2>H — Heartfelt Memories 💙</h2>
+<p class="typing">
+Not all memories need photos or big moments to matter.  
+Some of them stay meaningful simply because of how they made us feel.
+
+The moments spent with you — the talks, the laughs, even the silence —  
+they slowly turn into memories that feel warm and familiar.
+
+They don't fade with time.  
+They stay quietly in the heart,  
+exactly where they belong.
+</p>
+<div class="back" onclick="goHome()">← back</div>
+</div>
+<div class="photo">
+  <img id="slideImg" src="images/pic1.jpg">
+</div>
+</div>
+</section>
+
+<!-- I -->
+<section class="page" id="i">
+<div class="content">
+<div class="text">
+<h2>I — Invisible Support ✨</h2>
+<p class="typing">
+The strongest kind of support is often the quiet one.  
+The kind that doesn't ask for attention or appreciation.
+
+You've always been there in ways that don't need words.  
+Your presence alone makes situations feel lighter and more manageable.
+
+That invisible support means more than you probably realize,  
+and it's something not everyone is lucky enough to have.
+</p>
+<div class="back" onclick="goHome()">← back</div>
+</div>
+<div class="photo">
+  <img id="slideImg" src="images/pic2.jpg">
+</div>
+</div>
+</section>
+
+<!-- L -->
+<section class="page" id="l">
+<div class="content">
+<div class="text">
+<h2>L — Laughter 🌸</h2>
+<p class="typing">
+Laughter has a way of changing the mood without trying too hard.  
+It makes moments brighter and days feel easier.
+
+Your laughter feels genuine and comforting.  
+It turns ordinary moments into ones worth remembering.
+
+Life honestly feels lighter around you,  
+and that kind of joy is a gift to everyone who knows you.
+</p>
+<div class="back" onclick="goHome()">← back</div>
+</div>
+<div class="photo">
+  <img id="slideImg" src="images/pic5.jpg">
+</div>
+</div>
+</section>
+
+<!-- A -->
+<section class="page" id="a">
+<div class="content">
+<div class="text">
+<h2>A — Always 🌠</h2>
+<p class="typing">
+Some people come and go,  
+but a few stay constant no matter what.
+
+You've always been steady, consistent, and real.  
+No conditions, no pretenses — just your presence.
+
+That sense of "always" is comforting in ways words can't explain,  
+and it truly means a lot.
+</p>
+<div class="back" onclick="goHome()">← back</div>
+</div>
+<div class="photo">
+  <img id="slideImg" src="images/pic4.jpg">
+</div>
+</div>
+</section>
+
+<!-- N -->
+<section class="page" id="n">
+<div class="content">
+<div class="text">
+<h2>N — Never Ordinary ✨</h2>
+<p class="typing">
+Last but definitely not least,
+To my best friend — someone who makes life feel lighter just by being around.From random laughs to deep conversations, from quiet moments to unforgettable memories. you’ve been a constant presence that I’m truly grateful for.
+You have this beautiful way of spreading warmth and positivity,and being your friend is something I'll always value.
+You deserve happiness that feels peaceful, smiles that come easily,and moments that make your heart feel full ✨
+Happy Birthday once again 🎈
+— Shubham 💖
+</p>
+<div class="back" onclick="goHome()">← back</div>
+</div>
+<div class="photo">
+  <img id="slideImg" src="images/pic5.jpg">
+</div>
+</div>
+</section>
+
+<script>
+/* TIMER */
+const target=new Date("Jan 29, 2026 00:00:00").getTime();
+setInterval(()=>{
+const now=new Date().getTime();
+const d=target-now;
+const days=Math.floor(d/(1000*60*60*24));
+const hrs=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+const min=Math.floor((d%(1000*60*60))/(1000*60));
+const sec=Math.floor((d%(1000*60))/1000);
+document.getElementById("timer").innerText=
+`${days} days : ${hrs} hrs : ${min} min : ${sec} sec until 29 Jan 2026`;
+},1000);
+
+
+
+/* PAGE NAV */
+function openPage(id){
+document.getElementById("home").style.display="none";
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+document.getElementById(id).style.display="flex";
+if(id==="n") document.getElementById("confetti").style.display="block";
+}
+function goHome(){
+document.getElementById("confetti").style.display="none";
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+document.getElementById("home").style.display="flex";
+}
+
+/* SLIDESHOW */
+const slides=["images/pic1.jpg","images/pic2.jpg","images/pic5.jpg","images/pic4.jpg"];
+let slideIndex=0;
+setInterval(()=>{
+const img=document.getElementById("slideImg");
+if(img){
+slideIndex=(slideIndex+1)%slides.length;
+img.style.opacity=0;
+setTimeout(()=>{
+img.src=slides[slideIndex];
+img.style.opacity=1;
+},400);
+}
+},3000);
+
+/* MUSIC CONTROL */
+const music=document.getElementById("bgMusic");
+const btn=document.getElementById("musicBtn");
+let playing=false;
+btn.addEventListener("click",()=>{
+music.load();
+music.muted=false;
+if(!playing){
+music.play();
+btn.innerText="⏸️";
+}else{
+music.pause();
+btn.innerText="💙";
+}
+playing=!playing;
+});
+
+function startMusic(){
+if(!playing){
+music.load();
+music.muted=false;
+music.play();
+btn.innerText="⏸️";
+playing=true;
+}
+}
+function typeText(element, speed = 30){
+  const text = element.innerHTML;
+  element.innerHTML = "";
+  let i = 0;
+
+  const typing = setInterval(() => {
+    element.innerHTML += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(typing);
+  }, speed);
+}
+
+document.querySelectorAll(".page").forEach(page=>{
+  page.addEventListener("animationstart", ()=>{
+    const p = page.querySelector(".typing");
+    if(p) typeText(p);
+  });
+});
+
+</script>
+</body>
+</html>
