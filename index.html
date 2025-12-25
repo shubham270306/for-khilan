@@ -381,31 +381,39 @@ document.getElementById("home").style.display="flex";
 }
 
 /* SLIDESHOW */
-const slides=["images/pic1.jpg",
-"images/pic2.jpg",
-"images/pic5.jpg",
-"images/pic4.jpg",
-"images/w1.jpg",
-"images/w2.jpeg",
-"images/w3.jpg",
-"images/w4.jpeg",
-"images/w5.jpeg",
-"images/w6.jpeg",
-"images/w7.jpeg",
-"images/w8.jpeg",
-"images/w9.jpeg"];
-let slideIndex=0;
-setInterval(()=>{
-const img=document.getElementById("slideImg");
-if(img){
-slideIndex=(slideIndex+1)%slides.length;
-img.style.opacity=0;
-setTimeout(()=>{
-img.src=slides[slideIndex];
-img.style.opacity=1;
-},400);
-}
-},3000);
+const slides = [
+  "images/pic1.jpg",
+  "images/pic2.jpg",
+  "images/pic5.jpg",
+  "images/pic4.jpg",
+  "images/w1.jpg",
+  "images/w2.jpeg",
+  "images/w3.jpg",
+  "images/w4.jpeg",
+  "images/w5.jpeg",
+  "images/w6.jpeg",
+  "images/w7.jpeg",
+  "images/w8.jpeg",
+  "images/w9.jpeg"
+];
+
+let slideIndex = 0;
+
+setInterval(() => {
+  const imgs = document.querySelectorAll(".slideImg");
+
+  imgs.forEach(img => {
+    slideIndex = (slideIndex + 1) % slides.length;
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+      img.src = slides[slideIndex];
+      img.style.opacity = 1;
+    }, 400);
+  });
+
+}, 3000);
+
 
 /* MUSIC CONTROL */
 const music=document.getElementById("bgMusic");
